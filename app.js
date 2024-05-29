@@ -67,5 +67,25 @@ for (let i = 0; i < pokemon.length; i++){
     content.classList.add("content")
     column.appendChild(content)
 
+    let header = document.createElement("a")
+    header.classList.add("header")
+    header.innerText = pokemon[i].name
+    content.appendChild(header)
+
+    let meta = document.createElement("div")
+    meta.classList.add("meta")
+    content.appendChild(meta)
+
+
+    let data = document.createElement("span")
+    data.classList.add("date")
+    data.innerText = pokemon[i].subname
+    meta.appendChild(data)
+
+    let description = document.createElement("div")
+    description.classList.add("description")
+    description.innerText = pokemon[i].description
+    content.appendChild(description)
+
 
 }

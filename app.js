@@ -3,40 +3,40 @@ const pokemon = [
         name: "Pikachu",
         subname: "The Rat Pokemon",
         description: "Pikachu is an Electric Type",
-        image : "https://i.ebayimg.com/images/g/B~gAAOSwhNthhdjn/s-l1600.webp"
+        image : "https://archives.bulbagarden.net/media/upload/thumb/c/c1/0025Pikachu-PhD.png/600px-0025Pikachu-PhD.png"
     },
 
     {
-        name: "Osshawott",
+        name: "Oshawott",
         subname: "The Otter Pokemon",
-        description: "Osshawott is a Water Type",
-        image : "https://i.ebayimg.com/images/g/B~gAAOSwhNthhdjn/s-l1600.webp"
+        description: "Oshawott is a Water Type",
+        image : "https://archives.bulbagarden.net/media/upload/thumb/9/90/0501Oshawott.png/250px-0501Oshawott.png"
     },
     {
-        name: "Pikachu",
-        subname: "The Rat Pokemon",
-        description: "Pikachu is an Electric Type",
-        image : "https://i.ebayimg.com/images/g/B~gAAOSwhNthhdjn/s-l1600.webp"
+        name: "Bulbasaur",
+        subname: "The Plant Pokemon",
+        description: "Bulbasaur is a grass Type",
+        image : "https://archives.bulbagarden.net/media/upload/thumb/f/fb/0001Bulbasaur.png/250px-0001Bulbasaur.png"
     },
 
     {
-        name: "Osshawott",
-        subname: "The Otter Pokemon",
-        description: "Osshawott is a Water Type",
-        image : "https://i.ebayimg.com/images/g/B~gAAOSwhNthhdjn/s-l1600.webp"
+        name: "Quilava",
+        subname: "The Hotdog Pokemon",
+        description: "Quilava is a Fire Type",
+        image : "https://archives.bulbagarden.net/media/upload/thumb/3/3f/0156Quilava.png/250px-0156Quilava.png"
     },
     {
-        name: "Pikachu",
-        subname: "The Rat Pokemon",
-        description: "Pikachu is an Electric Type",
-        image : "https://i.ebayimg.com/images/g/B~gAAOSwhNthhdjn/s-l1600.webp"
+        name: "Mewtwo",
+        subname: "The Wierd Pokemon",
+        description: "Mewtwo",
+        image : "https://archives.bulbagarden.net/media/upload/thumb/8/89/0150Mewtwo.png/250px-0150Mewtwo.png"
     },
 
     {
-        name: "Osshawott",
-        subname: "The Otter Pokemon",
-        description: "Osshawott is a Water Type",
-        image : "https://i.ebayimg.com/images/g/B~gAAOSwhNthhdjn/s-l1600.webp"
+        name: "Gible",
+        subname: "The Dragon Pokemon",
+        description: "Gible is a dragon Type",
+        image : "https://archives.bulbagarden.net/media/upload/thumb/6/68/0443Gible.png/250px-0443Gible.png"
     }
 ]
 
@@ -55,7 +55,7 @@ for (let i = 0; i < pokemon.length; i++){
     column.append(uiCard)
 
     let imageContainer = document.createElement("div")
-    imageContainer.className = "img"
+    imageContainer.className = "image"
     uiCard.appendChild(imageContainer)
 
     let image = document.createElement("img")
@@ -65,7 +65,7 @@ for (let i = 0; i < pokemon.length; i++){
 
     let content = document.createElement("div")
     content.classList.add("content")
-    column.appendChild(content)
+    uiCard.appendChild(content)
 
     let header = document.createElement("a")
     header.classList.add("header")
@@ -88,4 +88,38 @@ for (let i = 0; i < pokemon.length; i++){
     content.appendChild(description)
 
 
+    //Part 3
+
+    let extraContent = document.createElement("div")
+    extraContent.className = " extra content"
+    uiCard.appendChild(extraContent)
+
+    let aContainer = document.createElement("a")
+  
+    extraContent.appendChild(aContainer)
+
+    let cameraIcon = document.createElement("i")
+//     cameraIcon.className = "checkmark icon"
+// aContainer.appendChild(cameraIcon)
+aContainer.innerHTML = `<i class=" x icon red status"></i>Not Captured`
+
+aContainer.addEventListener("click", (e)=>{
+   if (e.target.innerHTML == `<i class=" x icon red status"></i>Not Captured`){
+    aContainer.innerHTML =  `<i class=" check icon green status"></i>Captured`
+   } else {
+   aContainer.innerHTML = `<i class=" x icon red status"></i>Not Captured`
+   }
+})
 }
+
+const form = document.querySelector(".form")
+  form.addEventListener( "submit",(e)=>{
+    e.preventDefault()
+    let values = [...document.forms["form"].getElementsByTagName("input")].map(input => input.value)
+    console.log(values)
+    form.reset()
+  })
+
+
+
+

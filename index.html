@@ -17,11 +17,36 @@
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
   </head>
   <body>
-    <h1>Hello My Biggest Enemy</h1>
-
-    <div id="container" class="ui three column doubling stackable grid container">
-   
+    <div class="container ui three from-style">
+      <h1 class=" ui center aligned header">Pokemon Collector</h1>    
+      <form id="form" class="ui form">
+        <div class="field">
+          <label>Name</label>
+          <input type="text" name="pokemon-name" required  placeholder="Pokemon Name">
+        </div>
+        <div class="field">
+          <label>Description</label>
+          <input type="text" name="description" required placeholder="Description About Pokemon Here">
+        </div>
+        <div class="field">
+          <label>Subname</label>
+          <input type="text" name="subname"  required placeholder="Subname or Nickname of Pokemon">
+        </div>
+        <div class="field">
+          <label>Image Link</label>
+          <input type="text" name="imagelink" required placeholder="Image Address Link Here">
+        </div>
+        <button class="ui button blue" type="submit">Submit</button>
+      </form>
     </div>
+
+
+<br>
+</div>
+    <div id="container" class="ui three column doubling stackable grid container">
+     
+    </div>
+
     <script src="app.js"></script>
   </body>
 </html>

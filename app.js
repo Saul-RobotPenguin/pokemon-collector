@@ -44,7 +44,43 @@ console.log(pokemon)
 
 const container = document.getElementById("container")
 
-for (let i = 0; i < pokemon.length; i++){
+const form = document.querySelector(".form")
+const loadingBar = document.querySelector(".loading-bar")
+
+
+
+  form.addEventListener( "submit",(e)=>{
+    e.preventDefault()
+    loadingBar.classList.remove("hide")
+
+    setTimeout(() => {
+       loadingBar.classList.add("hide")
+       let values = [...document.forms["form"].getElementsByTagName("input")].map(input => input.value)
+
+       console.log(values)
+   
+      let pokemonData =  {
+           name: values[0],
+           subname: values[1],
+           description: values[2],
+           image : values[3]
+       }
+       MakeTheCards(pokemonData)
+       
+    form.reset()
+      }, 2000);
+  })
+
+
+
+
+  for (let i = 0; i < pokemon.length; i++){
+
+    MakeTheCards(pokemon[i])
+  }
+
+function MakeTheCards(pokemon){
+    
     let column = document.createElement("div")
     column.classList.add("column")
     container.append(column)
@@ -59,7 +95,7 @@ for (let i = 0; i < pokemon.length; i++){
     uiCard.appendChild(imageContainer)
 
     let image = document.createElement("img")
-    image.src =pokemon[i].image
+    image.src = pokemon.image
     imageContainer.appendChild(image)
 //2nd Part Of Cards
 
@@ -69,7 +105,7 @@ for (let i = 0; i < pokemon.length; i++){
 
     let header = document.createElement("a")
     header.classList.add("header")
-    header.innerText = pokemon[i].name
+    header.innerText = pokemon.name
     content.appendChild(header)
 
     let meta = document.createElement("div")
@@ -79,12 +115,12 @@ for (let i = 0; i < pokemon.length; i++){
 
     let data = document.createElement("span")
     data.classList.add("date")
-    data.innerText = pokemon[i].subname
+    data.innerText = pokemon.subname
     meta.appendChild(data)
 
     let description = document.createElement("div")
     description.classList.add("description")
-    description.innerText = pokemon[i].description
+    description.innerText = pokemon.description
     content.appendChild(description)
 
 
@@ -110,16 +146,5 @@ aContainer.addEventListener("click", (e)=>{
    aContainer.innerHTML = `<i class=" x icon red status"></i>Not Captured`
    }
 })
+
 }
-
-const form = document.querySelector(".form")
-  form.addEventListener( "submit",(e)=>{
-    e.preventDefault()
-    let values = [...document.forms["form"].getElementsByTagName("input")].map(input => input.value)
-    console.log(values)
-    form.reset()
-  })
-
-
-
-
